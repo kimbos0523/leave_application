@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Leave Application</title>
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+<div class="container" style="max-width: 600px">
+    <div class="py-5 text-center">
+        <h2>Welcome to Leave Application</h2>
+        <h4 th:text="|Profile Page: ${session.loginMember.name} |">Home Page</h4>
+    </div>
+    <div class="row py-3">
+        <div class="col-3">
+            <button class="w-100 btn btn-secondary btn-lg" type="button"
+                    th:onclick="|location.href='@{/employees/profile}'|">
+                Profile
+            </button>
+        </div>
+        <div class="col-3">
+            <button class="w-100 btn btn-dark btn-lg" type="button"
+                    th:onclick="|location.href='@{/employees/requests/add}'|">
+                Request
+            </button>
+        </div>
+        <div class="col-3">
+            <button class="w-100 btn btn-secondary btn-lg" type="button"
+                    th:onclick="|location.href='@{/absences}'|">
+                View
+            </button>
+        </div>
+        <div class="col-3">
+            <button class="w-100 btn btn-secondary btn-lg" type="button"
+                    th:onclick="|location.href='@{/}'|">
+                Log Out
+            </button>
+        </div>
+    </div>
+    <div class="row">
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Email</th>
+                <th scope="col">Password</th>
+                <th scope="col">Name</th>
+                <th scope="col">Position</th>
+                <th scope="col">Salary</th>
+                <th scope="col">Leave</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th scope="row" th:text="${profile.getId()}"></th>
+                <td th:text="${profile.getEmail()}"></td>
+                <td th:text="${profile.getPassword()}"></td>
+                <td th:text="${profile.getName()}"></td>
+                <td th:text="${profile.getPosition()}"></td>
+                <td th:text="${profile.getSalary()}"></td>
+                <td th:text="${profile.getCount()}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>
